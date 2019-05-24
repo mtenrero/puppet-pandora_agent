@@ -3,4 +3,6 @@
 ---
 fixtures:
   forge_modules:
+      yumrepo_core: "puppetlabs/yumrepo_core"
+      yum: "puppet/yum"
 #     stdlib: "puppetlabs/stdlib"
