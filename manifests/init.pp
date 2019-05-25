@@ -15,10 +15,10 @@
 # @author Marcos Tenrero <tenrero@aol.com>
 #
 class pandora_agent (
-  Variant[Enum['present', 'absent', 'latest'], Pattern[/^\d([.]\d+)*(-[\d\w]+)?$/]] $ensure
+  Variant[Enum['present', 'absent', 'latest'], Pattern[/^\d([.]\d+)*(-[\d\w]+)?$/]] $ensure,
 ) {
 
-  contain ::pandora_agent::install
+  contain pandora_agent::install
 
-  Class['::pandora_agent::install']
+  include pandora_agent::install
 }

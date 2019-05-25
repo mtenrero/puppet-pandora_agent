@@ -19,7 +19,7 @@ class pandora_agent::install (
       }
 
       package { $package:
-        ensure => $::pandora_agent::ensure
+        ensure => $pandora_agent::ensure
       }
 
     }
@@ -27,7 +27,7 @@ class pandora_agent::install (
     }
 
     default: {
-      fail("The operatng system ${facts['os']['family']} is not supported by this module")
+      fail("The operatng system ${osfamily} is not supported by this module")
     }
   }
 }
