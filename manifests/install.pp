@@ -4,20 +4,18 @@
 # @author Marcos Tenrero <tenrero@aol.com>
 #
 class pandora_agent::install (
-) inherits pandora_agent {
+) {
 
-  case $facts['os']['family'] {
+  case $osfamily {
     'RedHat': {
-      include ::yum
-      include ::yumrepo_core
+      include yum
       $package = 'pandorafms_agent_unix'
       Package[$package] { provider => 'yum' }
       yumrepo { 'pandora':
         baseurl    => 'http://firefly.artica.es/centos7',
         descr      => 'CentOS7 - PandoraFMS official repo',
         enabled    => '1',
-        gpgcheck   => '0',
-        mirrorlist => ''
+        gpgcheck   => '0'
       }
 
       package { $package:
