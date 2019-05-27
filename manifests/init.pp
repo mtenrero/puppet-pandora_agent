@@ -16,6 +16,7 @@
 #
 class pandora_agent (
   Variant[Enum['present', 'absent', 'latest'], Pattern[/^\d([.]\d+)*(-[\d\w]+)?$/]] $ensure,
+  Optional[String] $config_file = undef,
 ) {
 
   contain pandora_agent::install
